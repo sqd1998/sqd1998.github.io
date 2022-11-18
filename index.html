@@ -205,6 +205,45 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2022/11/18/vue-if-for/">v-if与v-for一起使用的冲突</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2022-11-18T03:03:09.000Z" itemprop="datePublished">
+          2022-11-18
+      </time>
+    
+    
+    | 
+    <a href='/tags/问题/'>问题</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        总结
+v-if 不能和 v-for一起使用的原因是v-for 的优先级比 v-if高，一起使用会造成性能浪费 ,解决方案有两种，把v-if放在v-for的外层或者把需要v-for的属性先从计算属性中过滤一次
+v-if 和  v-for的优先级问题在vue3中不需要考虑，vue3更新了v-if和v-for的优先级，使v-if的优先级高于v-for
+
+
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2022/11/18/vue-if-for/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2022/11/16/myCollection/">网站推荐</a></h3>
                     <span>
                         <span class="post-meta">
@@ -243,7 +282,44 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2022/11/15/paper-1/">vue复制插件</a></h3>
+                    <h3><a href="/2022/11/16/vue-tree/">VueTreeselect 问题</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2022-11-16T02:12:55.000Z" itemprop="datePublished">
+          2022-11-16
+      </time>
+    
+    
+    | 
+    <a href='/tags/解决方法/'>解决方法</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        VueTreeselect 控件显示[unknown]treeselect 绑定的值需要与options输出的id相对应，若是空值，请不要给空字符串，0，等，因为会出现unknown，并且当选择了值以后，会出现选中的值后面会拼上unknown。
+解决办法就是把v-modle绑定的值设为null，必须是null，不能是‘null’，初始化的时候才不会出现unknown。
+
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2022/11/16/vue-tree/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2022/11/15/vue复制问题/">vue复制插件</a></h3>
                     <span>
                         <span class="post-meta">
       <time datetime="2022-11-15T10:14:44.000Z" itemprop="datePublished">
@@ -271,7 +347,7 @@ main.js注册1234import Vue from &#x27;vue&#x27;import VueClipboard from &#x27;v
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2022/11/15/paper-1/">Read More...</a>
+                        <a href="/2022/11/15/vue复制问题/">Read More...</a>
                     </p>
                     
                 </div>
@@ -283,7 +359,7 @@ main.js注册1234import Vue from &#x27;vue&#x27;import VueClipboard from &#x27;v
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2022/11/15/hello-world/">使用Hexo搭建个人博客</a></h3>
+                    <h3><a href="/2022/11/15/first-type/">使用Hexo搭建个人博客</a></h3>
                     <span>
                         <span class="post-meta">
       <time datetime="2022-11-15T08:49:30.000Z" itemprop="datePublished">
@@ -309,45 +385,7 @@ main.js注册1234import Vue from &#x27;vue&#x27;import VueClipboard from &#x27;v
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2022/11/15/hello-world/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2022/11/15/newpapername/">使用Hexo搭建个人博客</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2022-11-15T08:49:30.000Z" itemprop="datePublished">
-          2022-11-15
-      </time>
-    
-    
-    | 
-    <a href='/tags/博客/'>博客</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        记第一次使用Hexo搭建个人博客。简单步骤https://cloud.tencent.com/developer/article/1615742?from=article.detail.2159234
-
-详细步骤https://blog.csdn.net/sinat_37781304/article/details/82729029
-
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2022/11/15/newpapername/">Read More...</a>
+                        <a href="/2022/11/15/first-type/">Read More...</a>
                     </p>
                     
                 </div>
