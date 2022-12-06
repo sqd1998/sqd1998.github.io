@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>v-if与v-for一起使用的冲突 | SQD_BLOG</title>
+  <title>vue使用自定义校验的问题 | SQD_BLOG</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -173,8 +173,8 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2022-11-18T03:03:09.000Z" itemprop="datePublished">
-          2022-11-18
+      <time datetime="2022-12-06T07:14:34.000Z" itemprop="datePublished">
+          2022-12-06
       </time>
     
     
@@ -183,27 +183,32 @@
     
     
 </span>
-                <h1>v-if与v-for一起使用的冲突</h1>
+                <h1>vue使用自定义校验的问题</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li>v-if 不能和 v-for一起使用的原因是v-for 的优先级比 v-if高，一起使用会造成性能浪费 ,解决方案有两种，把v-if放在v-for的外层或者把需要v-for的属性先从计算属性中过滤一次</li>
-<li>v-if 和  v-for的优先级问题在vue3中不需要考虑，vue3更新了v-if和v-for的优先级，使v-if的优先级高于v-for</li>
-</ol>
+      		<hr>
+<p>有一个需求,需要使用vue的表单校验对上传的附件就行必填校验,查阅资料后,使用validator添加自定义校验规则,测试后发现自定义校验的value存在数据不能及时更新问题,后来采用判断本地数据的方法就行问题解决</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form-item</span><br><span class="line">                label=<span class="string">&quot;付款回单附件:&quot;</span></span><br><span class="line">                style=<span class="string">&quot;width: 520px&quot;</span></span><br><span class="line">                prop=<span class="string">&quot;fileListBack&quot;</span></span><br><span class="line">              &gt;</span><br><span class="line">                <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;display: flex&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                  <span class="tag">&lt;<span class="name">el-upload</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">class</span>=<span class="string">&quot;upload-demo&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">:action</span>=<span class="string">&quot;uploadImgUrl&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">:headers</span>=<span class="string">&quot;headers&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">ref</span>=<span class="string">&quot;uploads&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">:on-success</span>=<span class="string">&quot;handleSuccessbz&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">:on-exceed</span>=<span class="string">&quot;handleExceed&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">:before-upload</span>=<span class="string">&quot;beforeAvatarUpload&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">:before-remove</span>=<span class="string">&quot;beforeRemove&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">:on-remove</span>=<span class="string">&quot;removeHandlerFK&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">:on-preview</span>=<span class="string">&quot;handlePreview&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">:limit</span>=<span class="string">&quot;limit&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">:file-list</span>=<span class="string">&quot;paymentForm.fileListBack&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">accept</span>=<span class="string">&quot;.jpg,.jpeg,.png,.pdf&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                  &gt;</span></span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;<span class="name">el-button</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                      <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                      <span class="attr">size</span>=<span class="string">&quot;small&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                      <span class="attr">icon</span>=<span class="string">&quot;el-icon-upload2&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                      &gt;</span>上传文件&lt;/el-button</span></span><br><span class="line"><span class="language-xml">                    &gt;</span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">&quot;tip&quot;</span> <span class="attr">class</span>=<span class="string">&quot;el-upload__tip&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 420px&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                      最多可上传20个文件,单个文件不能超过20MB,支持pdf、png、jpg、jpeg格式。</span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                  <span class="tag">&lt;/<span class="name">el-upload</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">fileListBack</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">required</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">message</span>: <span class="string">&quot;请上传付款回单附件&quot;</span>,</span><br><span class="line">            <span class="attr">trigger</span>: <span class="string">&quot;change&quot;</span>,</span><br><span class="line">            <span class="attr">validator</span>: validscfj,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">validscfj</span> = (<span class="params">rule, value, callback</span>) =&gt; &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">paymentForm</span>.<span class="property">fileListBack</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">paymentForm</span>.<span class="property">fileListBack</span>.<span class="property">length</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="title function_">callback</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;请添加付款回单附件&quot;</span>));</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_">callback</span>();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>表单校验:需要在el-form绑定v-model   ref 绑定表单 :rules绑定规则      el-form-item绑定prop值为表单下的数据</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2022/12/06/vue%E4%BD%BF%E7%94%A8%E9%99%84%E4%BB%B6%E5%BF%85%E9%80%89%E6%A0%A1%E9%AA%8C%E7%9A%84%E9%97%AE%E9%A2%98/" style="float: left;">
-        ← vue使用自定义校验的问题
-    </a>
     
-    
-    <a class="pull-right" href="/2022/11/16/myCollection/">
-        网站推荐 →
+    <a class="pull-right" href="/2022/11/18/vue-if-for/">
+        v-if与v-for一起使用的冲突 →
     </a>
     
 </nav>
