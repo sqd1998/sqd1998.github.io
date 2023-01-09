@@ -223,7 +223,9 @@
                 <div class="col-md-8">
                     <p>
                       
-                        解决小程序wx.getUserProfile接口回收，wxfile://tmp临时文件转base64传回后台1234onChooseAvatar(e) &#123;      this.userInfo.avatarUrl = &#x27;data:image/jpeg;base64,&#x27; +     wx.getFileSystemManager().readFileSync(e.detail.avatarUrl,&#x27;
+                        解决小程序wx.getUserProfile接口回收，wxfile://tmp临时文件转base64传回后台调整说明自 2022 年 10 月 25 日 24 时后（以下统称 “生效期” ），用户头像昵称获取规则将进行如下调整：
+
+自生效期起，小程序 wx.getUserProfile 接口将被收回：生效期后发布的小程序新版本，通过 wx.getUserProfile 接口获取用户头像将统一返回默认灰色头像，昵称将统一返回 “微信用户”
                       
                     </p>
                     
