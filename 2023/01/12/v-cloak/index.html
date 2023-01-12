@@ -188,7 +188,7 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
       		<h2 id="html通过cdn方式引入vue源文件-页面时刷新-页面显示"><a href="#html通过cdn方式引入vue源文件-页面时刷新-页面显示" class="headerlink" title="html通过cdn方式引入vue源文件 页面时刷新 页面显示"></a>html通过cdn方式引入<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=vue&spm=1001.2101.3001.7020">vue</a>源文件 页面时刷新 页面显示</h2><p><strong>猜想：刷新或是加载时vue源文件加载，页面显示dom，此时vue的模板语法 Mustache 标签的编译还未完成，导致页面显示</strong></p>
-<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><img src="../img/1.png" style="zoom:100%;" />
+<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><img src="../../../../img/1.png" style="zoom:100%;" />
 
 <p><strong>1.在vue挂在的dom上面添加 v-cloak （最外层dom）</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;page&quot;</span> <span class="attr">v-cloak</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
