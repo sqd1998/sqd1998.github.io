@@ -205,6 +205,43 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2022/11/16/vue-tree/">VueTreeselect 问题</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2022-11-16T02:12:55.000Z" itemprop="datePublished">
+          2022-11-16
+      </time>
+    
+    
+    | 
+    <a href='/tags/解决方法/'>解决方法</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        VueTreeselect 控件显示[unknown]treeselect 绑定的值需要与options输出的id相对应，若是空值，请不要给空字符串，0，等，因为会出现unknown，并且当选择了值以后，会出现选中的值后面会拼上unknown。
+解决办法就是把v-modle绑定的值设为null，必须是null，不能是‘null’，初始化的时候才不会出现unknown。
+
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2022/11/16/vue-tree/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2022/11/15/vue复制问题/">vue复制插件</a></h3>
                     <span>
                         <span class="post-meta">
