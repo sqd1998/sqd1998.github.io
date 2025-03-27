@@ -1,10 +1,6 @@
 .DS_Store
 node_modules/
 dist/
-Inner/
-MhPlatformInner/
-MhPlatform/
-dist4/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -23,5 +19,4 @@ selenium-debug.log
 *.sln
 *.local
 
-package-lock.json
-yarn.lock
+
