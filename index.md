@@ -12,7 +12,7 @@ hero:
       link: /docs/消息推送
     - theme: alt
       text: 实践
-      link: /docs/消息推送
+      link: /docs/vr
 
 features:
   - icon: 📝

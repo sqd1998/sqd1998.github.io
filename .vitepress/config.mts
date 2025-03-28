@@ -15,6 +15,7 @@ export default defineConfig({
         items: [
           {
             items: [
+              { text: "vr实践", link: "/docs/vr" },
               { text: "消息推送", link: "/docs/消息推送" },
               { text: "VueTreeselect 控件问题", link: "/docs/VueTreeselect 控件问题" },
               { text: "vue使用附件必选校验的问题", link: "/docs/vue使用附件必选校验的问题" },
@@ -40,6 +41,7 @@ export default defineConfig({
           items: [
             {
               items: [
+                { text: "vr实践", link: "/docs/vr" },
                 { text: "消息推送", link: "/docs/消息推送" },
                 { text: "VueTreeselect 控件问题", link: "/docs/VueTreeselect 控件问题" },
                 { text: "vue使用附件必选校验的问题", link: "/docs/vue使用附件必选校验的问题" },
