@@ -1,14 +1,13 @@
 vue3+ts 封装mqtt
 
-前言
-近期在vue3的项目中使用到了mqtt，再次记录下，供大家学习
 
 一、mqtt下载
-
+```javascript
 npm install mqtt -S
+```
 
 二、封装mqtt.ts 
-
+```javascript
 import type { MqttClient, OnMessageCallback } from 'mqtt';
 import * as mqtt from 'mqtt/dist/mqtt.min.js';
 
@@ -71,9 +70,9 @@ class MQTT {
   }
 }
 export default MQTT;
-
+```
 三.封装usemqtt.ts
-
+```javascript
 import MQTT from '@/utils/mqtt';
 import type { OnMessageCallback } from 'mqtt';
 
@@ -105,16 +104,16 @@ export default function useMqtt() {
     startMqtt,
   };
 }
-
+```
 四.页面中使用
-
+```javascript
 import useMqtt from '@/composables/utils/useMqtt';
 const { startMqtt } = useMqtt();
 startMqtt('主题topic', (topic, message) => {
    const msg = JSON.parse(message.toString());
    console.log(msg);
 });
-
+```
 
 
 
