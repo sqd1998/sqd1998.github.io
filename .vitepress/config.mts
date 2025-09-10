@@ -15,6 +15,7 @@ export default defineConfig({
         items: [
           {
             items: [
+               { text: "mqtt使用", link: "/docs/mqtt" },
               { text: "vr实践", link: "/docs/vr" },
               { text: "消息推送", link: "/docs/消息推送" },
               { text: "VueTreeselect 控件问题", link: "/docs/VueTreeselect 控件问题" },
@@ -28,7 +29,7 @@ export default defineConfig({
               { text: "v-if与v-for冲突", link: "/docs/v-if与v-for冲突" },
               { text: "vue复制问题", link: "/docs/vue复制问题" },
               { text: "wx-login", link: "/docs/wx-login" },
-              { text: "mqtt使用", link: "/docs/mqtt" },
+             
             ],
           }
         ],
@@ -42,6 +43,7 @@ export default defineConfig({
           items: [
             {
               items: [
+                { text: "mqtt使用", link: "/docs/mqtt" },
                 { text: "vr实践", link: "/docs/vr" },
                 { text: "消息推送", link: "/docs/消息推送" },
                 { text: "VueTreeselect 控件问题", link: "/docs/VueTreeselect 控件问题" },
@@ -55,7 +57,7 @@ export default defineConfig({
                 { text: "v-if与v-for冲突", link: "/docs/v-if与v-for冲突" },
                 { text: "vue复制问题", link: "/docs/vue复制问题" },
                 { text: "wx-login", link: "/docs/wx-login" },
-                 { text: "mqtt使用", link: "/docs/mqtt" },
+                 
               ],
             }
           ],
